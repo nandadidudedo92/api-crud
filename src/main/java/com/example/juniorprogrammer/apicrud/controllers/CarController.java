@@ -40,5 +40,11 @@ public class CarController {
     public CarEntity updateCar(@RequestBody CarEntity param) {
         return carRepository.save(param);
     }
-    
+
+    @GetMapping(value = "deleteCar")
+    public String deleteCar(@RequestParam int id) {
+        carRepository.deleteById(id);
+        return "Success delete Car id: "+id;
+    }
+
 }

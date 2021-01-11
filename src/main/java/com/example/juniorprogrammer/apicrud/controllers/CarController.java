@@ -25,34 +25,34 @@ public class CarController {
     }
 
     @PostMapping(value = "addNewCar")
-    public CarEntity addNewCar(@RequestBody CarEntity param) {
+    public CommonResponse<CarEntity> addNewCar(@RequestBody CarEntity param) {
 
         carRepository.save(param);
-        return param;
+        return commonResponseGenerator.successResponse(param, "Success add new data");
     }
 
     @GetMapping(value = "getAllCar")
-    public List<CarEntity> getAllCar(){
-        return carRepository.findAll();
+    public CommonResponse<List<CarEntity>> getAllCar(){
+        return commonResponseGenerator.successResponse(carRepository.findAll(), "Success get all data");
     }
 
     @GetMapping(value = "getById")
-    public CarEntity getById(@RequestParam int id) {
-        return carRepository.findById(id).get();
+    public CommonResponse<CarEntity> getById(@RequestParam int id) {
+        return commonResponseGenerator.successResponse(carRepository.findById(id).get(), "Success get data by id: "+id);
     }
 
     @PostMapping(value = "UpdateCar")
-    public CarEntity updateCar(@RequestBody CarEntity param) {
-        return carRepository.save(param);
+    public CommonResponse<CarEntity> updateCar(@RequestBody CarEntity param) {
+        return commonResponseGenerator.successResponse(carRepository.save(param), "Success Update car");
     }
 
     @GetMapping(value = "deleteCar")
-    public List<CarEntity> deleteCar(@RequestParam int id) {
+    public CommonResponse<List<CarEntity>> deleteCar(@RequestParam int id) {
         carRepository.deleteById(id);
 
         List<CarEntity> carList = carRepository.findAll();
 
-        return carList;
+        return commonResponseGenerator.successResponse(carList, "Success delete car id: "+id);
     }
 
 }

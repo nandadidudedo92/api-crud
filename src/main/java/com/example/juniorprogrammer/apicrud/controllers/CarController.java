@@ -31,10 +31,13 @@ public class CarController {
         return carRepository.findAll();
     }
 
-
     @GetMapping(value = "getById")
     public CarEntity getById(@RequestParam int id) {
         return carRepository.findById(id).get();
     }
 
+    @PostMapping(value = "UpdateCar")
+    public String updateCar(@RequestBody CarEntity param) {
+        return carRepository.save(param).toString();
+    }
 }

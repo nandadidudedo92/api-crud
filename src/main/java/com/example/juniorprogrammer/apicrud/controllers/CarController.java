@@ -5,6 +5,8 @@ import com.example.juniorprogrammer.apicrud.repositories.CarRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping(value = "car")
 public class CarController {
@@ -22,6 +24,11 @@ public class CarController {
 
         carRepository.save(param);
         return param;
+    }
+
+    @GetMapping(value = "getAllCar")
+    public List<CarEntity> getAllCar(){
+        return carRepository.findAll();
     }
 
 }

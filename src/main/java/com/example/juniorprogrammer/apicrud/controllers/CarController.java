@@ -31,4 +31,10 @@ public class CarController {
         return carRepository.findAll();
     }
 
+
+    @GetMapping(value = "getById")
+    public CarEntity getById(@RequestParam int id) {
+        return carRepository.findById(id).get();
+    }
+
 }

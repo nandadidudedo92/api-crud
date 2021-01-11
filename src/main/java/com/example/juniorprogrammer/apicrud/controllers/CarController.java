@@ -26,9 +26,4 @@ public class CarController {
         return param;
     }
 
-    @GetMapping(value = "getAllCar")
-    public List<CarEntity> getAllCar(){
-        return carRepository.findAll();
-    }
-
 }

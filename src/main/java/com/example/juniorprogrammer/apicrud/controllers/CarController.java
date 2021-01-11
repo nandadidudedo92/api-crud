@@ -28,44 +28,55 @@ public class CarController {
 
     @PostMapping(value = "addNewCar")
     public CommonResponse<CarEntity> addNewCar(@RequestBody CarEntity param) {
-
-        CarEntity car = carService.addCar(param);
-
-        return commonResponseGenerator.successResponse(car, "Success Add New Car");
+        try {
+            CarEntity car = carService.addCar(param);
+            return commonResponseGenerator.successResponse(car, "Success Add New Car");
+        } catch (Exception e) {
+            return commonResponseGenerator.failedResponse(e.getMessage());
+        }
     }
 
     @GetMapping(value = "getAllCar")
-    public CommonResponse<List<CarEntity>> getAllCar(){
-
-        List<CarEntity> carList = carService.getallCar();
-
-        return commonResponseGenerator.successResponse(carList, "Success Get all Car");
+    public CommonResponse<List<CarEntity>> getAllCar() {
+        try {
+            List<CarEntity> carList = carService.getallCar();
+            return commonResponseGenerator.successResponse(carList, "Success Get all Car");
+        } catch (Exception e) {
+            return commonResponseGenerator.failedResponse(e.getMessage());
+        }
     }
 
     @GetMapping(value = "getById")
     public CommonResponse<CarEntity> getById(@RequestParam int id) {
-
-        CarEntity car = carService.getCarById(id);
-
-        return commonResponseGenerator.successResponse(car, "Success Get Car By Id: "+id);
+        try {
+            CarEntity car = carService.getCarById(id);
+            return commonResponseGenerator.successResponse(car, "Success Get Car By Id: " + id);
+        } catch (Exception e)  {
+            return  commonResponseGenerator.failedResponse(e.getMessage());
+        }
     }
 
-    @PostMapping(value = "UpdateCar")
+    @PostMapping(value = "updateCar")
     public CommonResponse<CarEntity> updateCar(@RequestBody CarEntity param) {
-
-        CarEntity car = carService.updateCar(param);
-
-        return commonResponseGenerator.successResponse(car, "Success Update Car id: "+car.getId());
+        try {
+            CarEntity car = carService.updateCar(param);
+            return commonResponseGenerator.successResponse(car, "Success Update Car id: " + car.getId());
+        } catch (Exception e) {
+            return commonResponseGenerator.failedResponse(e.getMessage()+" for id: "+param.getId());
+        }
     }
 
     @GetMapping(value = "deleteCar")
     public CommonResponse<List<CarEntity>> deleteCar(@RequestParam int id) {
+        try {
+            carService.deleteCar(id);
+            List<CarEntity> carList = carService.getallCar();
+            return commonResponseGenerator.successResponse(carList, "Success Delete Car id: " + id);
+        } catch (Exception e) {
+            return  commonResponseGenerator.failedResponse(e.getMessage());
+        }
 
-        carService.deleteCar(id);
 
-        List<CarEntity> carList = carService.getallCar();
-
-        return commonResponseGenerator.successResponse(carList, "Success Delete Car id: "+id);
     }
 
 }

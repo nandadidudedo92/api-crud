@@ -2,6 +2,7 @@ package com.example.juniorprogrammer.apicrud.controllers;
 
 import com.example.juniorprogrammer.apicrud.entities.CarEntity;
 import com.example.juniorprogrammer.apicrud.repositories.CarRepository;
+import com.example.juniorprogrammer.apicrud.services.CarService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -11,8 +12,9 @@ import java.util.List;
 @RequestMapping(value = "car")
 public class CarController {
 
+
     @Autowired
-    CarRepository carRepository;
+    CarService carService;
 
     @GetMapping(value = "checkAPI")
     public String checkApi() {
@@ -22,30 +24,41 @@ public class CarController {
     @PostMapping(value = "addNewCar")
     public CarEntity addNewCar(@RequestBody CarEntity param) {
 
-        carRepository.save(param);
-        return param;
+        CarEntity car = carService.addCar(param);
+
+        return car;
     }
 
     @GetMapping(value = "getAllCar")
     public List<CarEntity> getAllCar(){
-        return carRepository.findAll();
+
+        List<CarEntity> carList = carService.getallCar();
+
+        return carList;
     }
 
     @GetMapping(value = "getById")
     public CarEntity getById(@RequestParam int id) {
-        return carRepository.findById(id).get();
+
+        CarEntity car = carService.getCarById(id);
+
+        return car;
     }
 
     @PostMapping(value = "UpdateCar")
     public CarEntity updateCar(@RequestBody CarEntity param) {
-        return carRepository.save(param);
+
+        CarEntity car = carService.updateCar(param);
+
+        return car;
     }
 
     @GetMapping(value = "deleteCar")
     public List<CarEntity> deleteCar(@RequestParam int id) {
-        carRepository.deleteById(id);
 
-        List<CarEntity> carList = carRepository.findAll();
+        carService.deleteCar(id);
+
+        List<CarEntity> carList = carService.getallCar();
 
         return carList;
     }

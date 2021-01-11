@@ -42,9 +42,12 @@ public class CarController {
     }
 
     @GetMapping(value = "deleteCar")
-    public String deleteCar(@RequestParam int id) {
+    public List<CarEntity> deleteCar(@RequestParam int id) {
         carRepository.deleteById(id);
-        return "Success delete Car id: "+id;
+
+        List<CarEntity> carList = carRepository.findAll();
+
+        return carList;
     }
 
 }

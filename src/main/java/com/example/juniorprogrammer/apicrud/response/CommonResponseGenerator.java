@@ -14,4 +14,12 @@ public class CommonResponseGenerator {
         return commonResponse;
     }
 
+    public <T> CommonResponse<T> failedResponse(String message) {
+        CommonResponse commonResponse = new CommonResponse<>();
+        commonResponse.setStatus("500");
+        commonResponse.setMessage(message);
+
+        return commonResponse;
+    }
+
 }

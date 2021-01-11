@@ -2,6 +2,8 @@ package com.example.juniorprogrammer.apicrud.controllers;
 
 import com.example.juniorprogrammer.apicrud.entities.CarEntity;
 import com.example.juniorprogrammer.apicrud.repositories.CarRepository;
+import com.example.juniorprogrammer.apicrud.response.CommonResponse;
+import com.example.juniorprogrammer.apicrud.response.CommonResponseGenerator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -14,9 +16,12 @@ public class CarController {
     @Autowired
     CarRepository carRepository;
 
+    @Autowired
+    CommonResponseGenerator commonResponseGenerator;
+
     @GetMapping(value = "checkAPI")
-    public String checkApi() {
-        return "Hello World";
+    public CommonResponse<String> checkApi() {
+        return commonResponseGenerator.successResponse("Hello Kakak","Success check API");
     }
 
     @PostMapping(value = "addNewCar")

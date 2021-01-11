@@ -37,7 +37,8 @@ public class CarController {
     }
 
     @PostMapping(value = "UpdateCar")
-    public String updateCar(@RequestBody CarEntity param) {
-        return carRepository.save(param).toString();
+    public CarEntity updateCar(@RequestBody CarEntity param) {
+        return carRepository.save(param);
     }
+    
 }

@@ -36,7 +36,7 @@ public class CarController {
         }
     }
 
-    @GetMapping(value = "getAllCar")
+    @GetMapping(value = "getAll")
     public CommonResponse<List<CarEntity>> getAllCar() {
         try {
             List<CarEntity> carList = carService.getallCar();

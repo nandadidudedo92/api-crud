@@ -21,7 +21,7 @@ public class CarController {
     @Autowired
     CommonResponseGenerator commonResponseGenerator;
 
-    @GetMapping(value = "checkAPI")
+    @GetMapping(value = "test")
     public CommonResponse<String> checkApi() {
         return commonResponseGenerator.successResponse("Hello World", "Success check api");
     }

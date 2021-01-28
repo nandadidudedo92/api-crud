@@ -23,7 +23,7 @@ public class CarController {
 
     @GetMapping(value = "test")
     public CommonResponse<String> checkApi() {
-        return commonResponseGenerator.successResponse("Hello World", "Success check api");
+        return commonResponseGenerator.successResponse("Hello World", "Success check api gaes");
     }
 
     @PostMapping(value = "addNewCar")

@@ -1,10 +1,12 @@
 package com.example.juniorprogrammer.apicrud.controllers;
 
 import com.example.juniorprogrammer.apicrud.entities.CarEntity;
+import com.example.juniorprogrammer.apicrud.entities.CarImage;
 import com.example.juniorprogrammer.apicrud.repositories.CarRepository;
 import com.example.juniorprogrammer.apicrud.response.CommonResponse;
 import com.example.juniorprogrammer.apicrud.response.CommonResponseGenerator;
 import com.example.juniorprogrammer.apicrud.services.CarService;
+import com.example.juniorprogrammer.apicrud.wrappers.CarImageWrapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -76,7 +78,17 @@ public class CarController {
             return  commonResponseGenerator.failedResponse(e.getMessage());
         }
 
+    }
 
+    @PostMapping(value = "upload-car")
+    public CommonResponse<CarImage> upload(@RequestBody CarImageWrapper param){
+        try {
+
+            CarImage car = carService.upload(param);
+            return commonResponseGenerator.successResponse(car, "Success Upload Image " );
+        } catch (Exception e) {
+            return  commonResponseGenerator.failedResponse(e.getMessage());
+        }
     }
 
 }

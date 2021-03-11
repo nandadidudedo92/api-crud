@@ -1,6 +1,8 @@
 package com.example.juniorprogrammer.apicrud.services;
 
 import com.example.juniorprogrammer.apicrud.entities.CarEntity;
+import com.example.juniorprogrammer.apicrud.entities.CarImage;
+import com.example.juniorprogrammer.apicrud.wrappers.CarImageWrapper;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
@@ -18,4 +20,6 @@ public interface CarService {
     CarEntity updateCar(CarEntity param);
 
     void deleteCar(int id);
+
+    CarImage upload(CarImageWrapper carImageWrapper);
 }

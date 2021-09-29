@@ -1,0 +1,12 @@
+/Users/direktoratctf/Documents/Latihan/SpringBoot/7_auto_created_date/api-crud/src/main/java/com/example/juniorprogrammer/apicrud/response/CommonResponse.java
+/Users/direktoratctf/Documents/Latihan/SpringBoot/7_auto_created_date/api-crud/src/main/java/com/example/juniorprogrammer/apicrud/audit/AuditableBase.java
+/Users/direktoratctf/Documents/Latihan/SpringBoot/7_auto_created_date/api-crud/src/main/java/com/example/juniorprogrammer/apicrud/entities/CarEntity.java
+/Users/direktoratctf/Documents/Latihan/SpringBoot/7_auto_created_date/api-crud/src/main/java/com/example/juniorprogrammer/apicrud/ApicrudApplication.java
+/Users/direktoratctf/Documents/Latihan/SpringBoot/7_auto_created_date/api-crud/src/main/java/com/example/juniorprogrammer/apicrud/repositories/CarImageRepository.java
+/Users/direktoratctf/Documents/Latihan/SpringBoot/7_auto_created_date/api-crud/src/main/java/com/example/juniorprogrammer/apicrud/repositories/CarRepository.java
+/Users/direktoratctf/Documents/Latihan/SpringBoot/7_auto_created_date/api-crud/src/main/java/com/example/juniorprogrammer/apicrud/controllers/CarController.java
+/Users/direktoratctf/Documents/Latihan/SpringBoot/7_auto_created_date/api-crud/src/main/java/com/example/juniorprogrammer/apicrud/services/CarServiceImpl.java
+/Users/direktoratctf/Documents/Latihan/SpringBoot/7_auto_created_date/api-crud/src/main/java/com/example/juniorprogrammer/apicrud/entities/CarImage.java
+/Users/direktoratctf/Documents/Latihan/SpringBoot/7_auto_created_date/api-crud/src/main/java/com/example/juniorprogrammer/apicrud/response/CommonResponseGenerator.java
+/Users/direktoratctf/Documents/Latihan/SpringBoot/7_auto_created_date/api-crud/src/main/java/com/example/juniorprogrammer/apicrud/services/CarService.java
+/Users/direktoratctf/Documents/Latihan/SpringBoot/7_auto_created_date/api-crud/src/main/java/com/example/juniorprogrammer/apicrud/wrappers/CarImageWrapper.java

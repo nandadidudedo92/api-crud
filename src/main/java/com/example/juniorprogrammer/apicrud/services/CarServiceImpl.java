@@ -62,4 +62,9 @@ public class CarServiceImpl implements CarService {
         carImage.setBase64(carImageWrapper.getBase64());
         return carImageRepository.save(carImage);
     }
+
+    @Override
+    public CarImage getByImageId(int id) {
+        return carImageRepository.getOne(id);
+    }
 }

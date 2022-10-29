@@ -90,4 +90,16 @@ public class CarController {
         }
     }
 
+    @GetMapping(value = "image-id")
+    public CommonResponse<CarImage> getByCarImageId(@RequestParam int id) {
+        try {
+            CarImage car = carService.getByImageId(id);
+            return commonResponseGenerator.successResponse(car, "Success Delete Car id: " + id);
+        } catch (Exception e) {
+            return  commonResponseGenerator.failedResponse(e.getMessage());
+        }
+
+    }
+
+
 }

@@ -22,4 +22,6 @@ public interface CarService {
     void deleteCar(int id);
 
     CarImage upload(CarImageWrapper carImageWrapper);
+
+    CarImage getByImageId(int id);
 }
